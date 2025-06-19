@@ -78,6 +78,7 @@ class Adaline:
                     print(f"Early stopping at epoch {epoch + 1}")
                     break
             
+            #Solver logic
             if self.solver is not None:
                 if self.solver == 'gd':
                     return self._gd(X, y)
