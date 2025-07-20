@@ -33,28 +33,28 @@ class Adaline:
         
         return self.weights, self.bias
     
-    def _sgd(self, X, y):
+    def _sgd(self, X, y, epochs, learning_rate. data):
         # Stochastic Gradient Descent
         """ The general formula for stochastic gradient descent is used in this function """
-        
-        if self.weights is None:
-            self.weights = np.zeros(X.shape[1] + 1)
-        
-        if self.bias is None:
-            self.bias = 0.0
+        w = 0.0 #Weight
+        b = 0.0 #Bias
 
-        for i in range(len(X)):
-            xi = X[i:i+1]
-            yi = y[i:i+1]
-            try:
-                self.weights -= self.learning_rate * np.gradient(self.weights[xi, yi])
-                self.bias -= self.learning_rate * np.gradient(self.bias[xi, yi])
-            except IndexError:        
-                error = yi - self.activation(xi)
-                self.weights += self.learning_rate * xi.T.dot(error)
-                self.bias += self.learning_rate * error.mean()
+        for epoch in range(epochs):
+            y_pred = w * X + b #Prediction
+
+            #Compute gradients
+            dw = 2 * X * (y_pred - y)
+            db = 2 * (y_pred - y)
+
+            #Parameter update (SGD step)
+            w -= learning_rate * dw
+            b -= learning_rate * db
+            
+            #Optional: print progress
+            if epoch % 10 == 0:
+                return(f"Epoch {epoch}: w = {w:.4f}, b = {b:.4f}")
         
-        return self.weights, self.bias
+        return w, b
 
     def fit(self, X, y):
         self.cost = []
