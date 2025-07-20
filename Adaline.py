@@ -33,7 +33,7 @@ class Adaline:
         
         return self.weights, self.bias
     
-    def _sgd(self, X, y, epochs, learning_rate. data):
+    def _sgd(self, X, y, epochs, learning_rate):
         # Stochastic Gradient Descent
         """ The general formula for stochastic gradient descent is used in this function """
         w = 0.0 #Weight
