@@ -75,7 +75,7 @@ class HybridLRAdaline:
         -------------------
         predicitions : array, shape (m,)
         """
-        X_with_bias = np.c_[np.ones(X,shape[0]), X]
+        X_with_bias = np.c_[np.ones(X.shape[0]), X]
         return X_with_bias @ self.weights
     
     def plot_cost_history(self):
@@ -89,7 +89,7 @@ class HybridLRAdaline:
         plt.title('Cost Function Over Iterations', fontsize=14)
         plt.grid(True, alpha=0.3)
         plt.tight_layout()
-        plt,show()
+        plt.show()
 
 """
 Sample Usage
