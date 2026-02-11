@@ -1,6 +1,8 @@
-#Gradient Descent for Linear Regression
-#yhat = wx + b
-#loss = (y - yhat) ** 2 / N
+"""Gradient Descent for Linear Regression
+yhat = wx + b
+loss = (y - yhat) ** 2 / N
+"""
+
 import numpy as np
 #Initialise some parameters
 x = np.random.randn(10, 1)
