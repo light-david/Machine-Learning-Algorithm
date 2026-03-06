@@ -10,7 +10,7 @@ class HybridLRAdaline:
         self.cost_history = []
     
     def fit(self, X, y, use_refinement=True):
-        X_with_bias = np.c[np.ones(X.shape[0]), X]
+        X_with_bias = np.c_[np.ones(X.shape[0]), X]
         m, n = X_with_bias.shape
 
         print("Phase 1: Linear Regression Initialisation")
@@ -124,7 +124,7 @@ if __name__ == "__main__":
     #Plot 1: Data and fitted line
     plt.subplot(1, 2, 1)
     plt.scatter(X, y, alpha=0.5, label='Training data')
-    X_line = np.linespace(0, 2, 100).reshape(-1, 1)
+    X_line = np.linspace(0, 2, 100).reshape(-1, 1)
     y_line = model.predict(X_line)
     plt.plot(X_line, y_line, 'r-', linewidth=2, label='Fitted line')
     plt.xlabel('X', fontsize=12)
@@ -145,5 +145,5 @@ if __name__ == "__main__":
     plt.show()
 
     print("\n" + "=" * 60)
-    print("Training complete!👍")
+    print("Training complete")
     print("=" * 60)
